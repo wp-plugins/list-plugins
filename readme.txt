@@ -49,6 +49,9 @@ You may also create a new plugin. You will download, from the plugin, an "hello 
 
 == Changelog ==
 
+= 1.0.2 =
+* New release to force a bug in wordpress.org
+
 = 1.0.1 =
 * Initial release
 
@@ -59,4 +62,4 @@ You may also create a new plugin. You will download, from the plugin, an "hello 
 Visit http://www.sedlex.fr/divers
 
  
-InfoVersion:8e493fb437ff3417287664a632da735a
+InfoVersion:d5510679572b2d88ce430d1c3cecc48b
