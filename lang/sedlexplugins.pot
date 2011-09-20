@@ -1,0 +1,113 @@
+Content-Transfer-Encoding: 8bit
+
+#: sedlex-plugins.php:90
+#@ sedlexplugins
+msgid "This plugin creates a list of SedLex plugins installed and allow the download of such plugins."
+msgstr ""
+
+#: sedlex-plugins.php:108
+#@ sedlexplugins
+msgid "Do you want the listed plugins to be downloadable?"
+msgstr ""
+
+#: sedlex-plugins.php:109
+#@ sedlexplugins
+msgid "Yes/No:"
+msgstr ""
+
+#: sedlex-plugins.php:110
+#@ sedlexplugins
+msgid "Path to store the zip file:"
+msgstr ""
+
+#: sedlex-plugins.php:114
+#@ sedlexplugins
+msgid "exists."
+msgstr ""
+
+#: sedlex-plugins.php:116
+#@ sedlexplugins
+msgid "does not exists"
+msgstr ""
+
+#: sedlex-plugins.php:119
+#@ sedlexplugins
+msgid "and cannot be created due to rights in the folder"
+msgstr ""
+
+#: sedlex-plugins.php:121
+#@ sedlexplugins
+msgid "but have been just created !"
+msgstr ""
+
+#: sedlex-plugins.php:124
+#@ sedlexplugins
+msgid "The path"
+msgstr ""
+
+#: sedlex-plugins.php:125
+#@ sedlexplugins
+msgid "For the listed plugins;"
+msgstr ""
+
+#: sedlex-plugins.php:126
+#@ sedlexplugins
+msgid "Show the version:"
+msgstr ""
+
+#: sedlex-plugins.php:127
+#@ sedlexplugins
+msgid "If you choose the plugins to be downloadable, the version will appear in the zip name whatever the option you choose here!"
+msgstr ""
+
+#: sedlex-plugins.php:128
+#@ sedlexplugins
+msgid "Show the embedded screenshots:"
+msgstr ""
+
+#: sedlex-plugins.php:129
+#@ sedlexplugins
+msgid "Show only plugins developped by SedLex:"
+msgstr ""
+
+#: sedlex-plugins.php:132
+#@ sedlexplugins
+msgid "Parameters"
+msgstr ""
+
+#: sedlex-plugins.php:138
+#: core/templates/my-plugin.php:212
+#@ sedlexplugins
+msgid "Manage translations"
+msgstr ""
+
+#: sedlex-plugins.php:141
+#: core/templates/my-plugin.php:215
+#@ sedlexplugins
+msgid "This form is an easy way to contact the author and to discuss issues / incompatibilities / etc."
+msgstr ""
+
+#: sedlex-plugins.php:145
+#: core/templates/my-plugin.php:219
+#@ sedlexplugins
+msgid "Give feedback"
+msgstr ""
+
+#: sedlex-plugins.php:243
+#@ sedlexplugins
+msgid "Created by"
+msgstr ""
+
+#: sedlex-plugins.php:252
+#: sedlex-plugins.php:253
+#: sedlex-plugins.php:269
+#: sedlex-plugins.php:270
+#@ sedlexplugins
+msgid "Download"
+msgstr ""
+
+#: sedlex-plugins.php:264
+#@ sedlexplugins
+msgid "Error: %s"
+msgstr ""
+

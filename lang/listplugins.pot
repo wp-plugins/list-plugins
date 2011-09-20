@@ -1,0 +1,133 @@
+Content-Transfer-Encoding: 8bit
+
+#: list-plugins.php:91
+#@ listplugins
+msgid "This plugin generates and display the list of the active plugins on your wordpress installation. Moreover it enables the download of the plugins."
+msgstr ""
+
+#: list-plugins.php:109
+#@ listplugins
+msgid "Do you want the listed plugins to be downloadable?"
+msgstr ""
+
+#: list-plugins.php:110
+#@ listplugins
+msgid "Yes/No:"
+msgstr ""
+
+#: list-plugins.php:111
+#@ listplugins
+msgid "Path to store the zip file:"
+msgstr ""
+
+#: list-plugins.php:112
+#@ listplugins
+msgid "Note that, if the plugin is also hosted by wordpress.org, the downlad link will be a link to the plugin page on wordpress.org"
+msgstr ""
+
+#: list-plugins.php:116
+#@ listplugins
+msgid "The path %s exists"
+msgstr ""
+
+#: list-plugins.php:121
+#@ listplugins
+msgid "The path %s does not exist and cannot be created due to rights in the folder"
+msgstr ""
+
+#: list-plugins.php:123
+#@ listplugins
+msgid "The path %s have been just created !"
+msgstr ""
+
+#: list-plugins.php:127
+#@ listplugins
+msgid "For the listed plugins:"
+msgstr ""
+
+#: list-plugins.php:128
+#@ listplugins
+msgid "Show the version:"
+msgstr ""
+
+#: list-plugins.php:129
+#@ listplugins
+msgid "If you choose the plugins to be downloadable, the version will appear in the zip name whatever the option you choose here!"
+msgstr ""
+
+#: list-plugins.php:130
+#@ listplugins
+msgid "Show the embedded screenshots:"
+msgstr ""
+
+#: list-plugins.php:131
+#@ listplugins
+msgid "Show only plugins developped by the author:"
+msgstr ""
+
+#: list-plugins.php:132
+#@ listplugins
+msgid "If this field is empty, all plugins will be displayed"
+msgstr ""
+
+#: list-plugins.php:135
+#@ listplugins
+msgid "Parameters"
+msgstr ""
+
+#: list-plugins.php:141
+#: core/templates/my-plugin.php:227
+#@ listplugins
+msgid "Manage translations"
+msgstr ""
+
+#: list-plugins.php:144
+#: core/templates/my-plugin.php:230
+#@ listplugins
+msgid "This form is an easy way to contact the author and to discuss issues / incompatibilities / etc."
+msgstr ""
+
+#: list-plugins.php:148
+#: core/templates/my-plugin.php:234
+#@ listplugins
+msgid "Give feedback"
+msgstr ""
+
+#: list-plugins.php:151
+#@ listplugins
+msgid "Here is the plugins developped by the author"
+msgstr ""
+
+#: list-plugins.php:154
+#: core/templates/my-plugin.php:243
+#@ listplugins
+msgid "Other possible plugins"
+msgstr ""
+
+#: list-plugins.php:252
+#@ listplugins
+msgid "Created by %s"
+msgstr ""
+
+#: list-plugins.php:261
+#: list-plugins.php:278
+#: list-plugins.php:279
+#@ listplugins
+msgid "Download %s"
+msgstr ""
+
+#: list-plugins.php:262
+#@ listplugins
+msgid "Download %s (on Wordpress.org)"
+msgstr ""
+
+#: list-plugins.php:273
+#@ listplugins
+msgid "Error: %s"
+msgstr ""
+
+#: core/templates/my-plugin.php:237
+#@ listplugins
+msgid "Here is the plugins developped by the author:"
+msgstr ""
+
