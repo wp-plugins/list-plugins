@@ -57,6 +57,9 @@ Moreover, all the plugins developped with this framework is able to use astonish
 == Changelog ==
 
 = 1.1.0 =
+* Update of the core and translations
+
+= 1.1.0 =
 * SVN support
 
 = 1.0.2 =
@@ -72,4 +75,4 @@ Moreover, all the plugins developped with this framework is able to use astonish
 Visit http://www.sedlex.fr/divers
 
  
-InfoVersion:ab0fb52832b172f87f7549c6d3881b32
+InfoVersion:49d891cd750c89c0a8a893532137cfc5
