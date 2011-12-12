@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2011-09-20T13:17:42+00:00\n"
+"PO-Revision-Date: 2011-12-12T14:29:40+00:00\n"
 "Last-Translator: SedLex <http://www.sedlex.fr/>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -68,17 +68,11 @@ msgstr "Paramètres"
 msgid "Manage translations"
 msgstr "Gérer les traductions"
 
-msgid "This form is an easy way to contact the author and to discuss issues / incompatibilities / etc."
-msgstr "Ce formulaire vous permet de contacter simplement l&#039;auteur pour discuter de vos problèmes / des incompatibilités / etc."
-
 msgid "Give feedback"
 msgstr "Donner un feedback"
 
-msgid "Here is the plugins developped by the author"
-msgstr "Voici les plugins développés par l&#039;auteur"
-
-msgid "Other possible plugins"
-msgstr "Autres plugins possibles"
+msgid "Other plugins"
+msgstr "Autres plugins"
 
 msgid "Created by %s"
 msgstr "Crée par %s"
@@ -91,7 +85,4 @@ msgstr "Télécharger %s (sur wordpress.org)"
 
 msgid "Error: %s"
 msgstr "Erreur : %s"
-
-msgid "Here is the plugins developped by the author:"
-msgstr "Voici les plugins développés par l&#039;auteur"
 

@@ -56,6 +56,9 @@ Moreover, all the plugins developped with this framework is able to use astonish
 
 == Changelog ==
 
+= 1.1.2 =
+* Improve the English text thanks to Rene 
+
 = 1.1.0 =
 * Update of the core and translations
 
@@ -72,7 +75,7 @@ Moreover, all the plugins developped with this framework is able to use astonish
 
 * Where can I read more?
 
-Visit http://www.sedlex.fr/divers
+Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:49d891cd750c89c0a8a893532137cfc5
+InfoVersion:d5f1a7f759563a36d70a0545c97c4245
