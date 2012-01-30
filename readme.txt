@@ -1,46 +1,48 @@
 === List Plugins ===
 
+Author: SedLex
 Contributors: SedLex
-Donate link: http://www.sedlex.fr/divers/
-Tags: plugin, list plugins
+Author URI: http://www.sedlex.fr/
+Plugin URI: http://wordpress.org/extend/plugins/list-plugins/
+Tags: list, plugin, active
 Requires at least: 3.0
-Tested up to: 3.1
+Tested up to: 3.3.1
 Stable tag: trunk
 
-Create a list of the active plugins
+Create a list of the active plugins in a page (when the shortcode [list_plugins] is found). 
 
 == Description ==
 
-Create a list of the active plugins in a page (when the shortcode **[list_plugins]** is found). 
+Create a list of the active plugins in a page (when the shortcode [list_plugins] is found). 
 
-The list can detail:
+ The list may contain: 
 
 * the name of the plugin, 
 * the version, 
-* the screenshots (up to 3 images).
+* the screenshots (up to 3 images),
+* a link to download the zip file of the current version.
 
-If the plugin is not hosted by wordpress.org, a zip archive may be downloadable
+Plugin developped from the orginal plugin WP-PluginsUsed. 
 
-You may restrained the list to the plugins developed by a given author
+This plugin is under GPL licence. 
 
-= Localizations =
+= Localization =
 
-* French translation (by me)
+* English (United States), default language
+* French (France) translation provided by SedLex
 
-= Features of the framework = 
+= Features of the framework =
 
-This plugin use SL framework.
+This plugin uses the SL framework. This framework eases the creation of new plugins by providing incredible tools and frames.
 
-You may translate this plugin with an embedded feature which is very easy to use by any end-users (without any external tools / knowledge).
+For instance, a new created plugin comes with
 
-You may also create a new plugin. You will download, from the plugin, an "hello World" plugin: You just have to fill the blank and follow the comments.
-
-Moreover, all the plugins developped with this framework is able to use astonishing tools, such as :
-
-* embedded SVN client (subversion) to easily commit/update the plugin in wordpress.org repository ; 
-* detailled documentation of all available classes and methodes ; 
-* updating the core with a single click ; 
+* A translation interface to simplify the localization of the text of the plugin ; 
+* An embedded SVN client (subversion) to easily commit/update the plugin in wordpress.org repository ; 
+* A detailled documentation of all available classes and methodes ; 
 * etc.
+
+Have fun !
 
 == Installation ==
 
@@ -55,6 +57,9 @@ Moreover, all the plugins developped with this framework is able to use astonish
 1. The configuration page of the plugin
 
 == Changelog ==
+
+= 1.2.0 =
+* Major release of the framework
 
 = 1.1.2 =
 * Improve the English text thanks to Rene 
@@ -78,4 +83,4 @@ Moreover, all the plugins developped with this framework is able to use astonish
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:d5f1a7f759563a36d70a0545c97c4245
+InfoVersion:a46a74ac9d8cf1d64aa4a2aaeffe12a5
