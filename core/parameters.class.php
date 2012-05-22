@@ -173,6 +173,7 @@ if (!class_exists("parametersSedLex")) {
 					$problem_e = "" ; 
 					$problem_w = "" ; 
 					if (isset($_POST['submitOptions'])) {
+						SL_Debug::log(get_class(), "The parameter of the plugin ".$this->obj->getPluginID()." have been updated", 4) ; 
 						$maj = true ; 
 						// Is it a boolean ?
 						if ($type=="boolean") {
@@ -191,8 +192,13 @@ if (!class_exists("parametersSedLex")) {
 								$this->obj->set_param($param, (int)$_POST[$param]) ; 
 								$modified = true ; 
 							} else {
-								$problem_e .= "<p>".__('Error: the submitted value is not an integer and thus, the parameter has not been updated!', 'SL_framework')."</p>\n" ; 
-								$error = true ; 
+								if ($_POST[$param]=="") {
+									$this->obj->set_param($param, 0) ; 
+									$modified = true ;
+								} else {
+									$problem_e .= "<p>".__('Error: the submitted value is not an integer and thus, the parameter has not been updated!', 'SL_framework')."</p>\n" ; 
+									$error = true ; 
+								}
 							}
 						} 
 						

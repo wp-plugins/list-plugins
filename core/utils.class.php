@@ -12,6 +12,28 @@ if (!class_exists("Utils")) {
 	class Utils {
 	
 		/** ====================================================================================================================================================
+		* To convert into UTF8
+		* 
+		* @param string $content the string to convert into UTF8
+		* @return string the converted string
+		*/
+
+		function convertUTF8($content) {
+		    if(!mb_check_encoding($content, 'UTF-8')
+			OR !($content === mb_convert_encoding(mb_convert_encoding($content, 'UTF-32', 'UTF-8' ), 'UTF-8', 'UTF-32'))) {
+
+			$content = mb_convert_encoding($content, 'UTF-8');
+
+			if (mb_check_encoding($content, 'UTF-8')) {
+			    // log('Converted to UTF-8');
+			} else {
+			    // log('Could not converted to UTF-8');
+			}
+		    }
+		    return $content;
+		} 
+
+		/** ====================================================================================================================================================
 		* Compute the size of a directory (reccursively or not)
 		* 
 		* @param string $path the path of the directory to scan 
@@ -293,9 +315,55 @@ if (!class_exists("Utils")) {
 				$md5 = md5(file_get_contents($path)) ; 
 			}
 			return $md5 ; 
+		}	
+		
+		
+		/** ====================================================================================================================================================
+		* Check if a folder or a file is writable
+		* 
+		* @param string $path the path to the folder or the file
+		* @return boolean true if the folder or the file is writable
+		*/
+		
+		function is_writable($path) {
+			if ($path{strlen($path)-1}=='/') // recursively return a temporary file path
+				return Utils::is_writable($path.uniqid(mt_rand()).'.tmp');
+			else if (is_dir($path))
+				return Utils::is_writable($path.'/'.uniqid(mt_rand()).'.tmp');
+			
+			// check tmp file for read/write capabilities
+			$rm = file_exists($path);
+			$f = @fopen($path, 'a');
+			if ($f===false)
+				return false;
+			@fclose($f);
+			if (!$rm)
+				@unlink($path);
+			return true;
 		}
 		
-
+		/** ====================================================================================================================================================
+		* Check if a folder or a file is readable
+		* 
+		* @param string $path the path to the folder or the file
+		* @return boolean true if the folder or the file is writable
+		*/
+		
+		function is_readable($path) {
+			if (is_dir($path))  {
+				if (@scandir($path) === FALSE) {
+					return false ; 
+				}
+				return true ; 
+			}
+			if (is_file($path))  {
+				if (@fopen($path, 'r')=== FALSE) {
+					return false ; 
+				}
+				return true ; 
+			}
+			return false ; 
+		}
 	} 
 }
 

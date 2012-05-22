@@ -36,7 +36,7 @@ class my_plugin extends pluginSedLex {
 
 	protected function _init() {
 		global $wpdb ; 
-		
+
 		// Name of the plugin (Please modify)
 		$this->pluginName = 'My Plugin' ; 
 		
@@ -82,7 +82,7 @@ class my_plugin extends pluginSedLex {
 	*/
 	
 	public function _update() {
-		
+		SL_Debug::log(get_class(), "Update the plugin." , 4) ; 
 	}
 	
 	/**====================================================================================================================================================
@@ -155,7 +155,10 @@ class my_plugin extends pluginSedLex {
 	
 	public function configuration_page() {
 		global $wpdb;
-	
+		global $blog_id ; 
+		
+		SL_Debug::log(get_class(), "Print the configuration page." , 4) ; 
+
 		?>
 		<div class="wrap">
 			<div id="icon-themes" class="icon32"><br></div>
@@ -166,7 +169,7 @@ class my_plugin extends pluginSedLex {
 			//===============================================================================================
 			// After this comment, you may modify whatever you want
 			?>
-			<p><? echo __("This is the configuration page of the plugin", $this->pluginID) ;?></p>
+			<p><?php echo __("This is the configuration page of the plugin", $this->pluginID) ;?></p>
 			<?php
 			
 			// We check rights
@@ -223,11 +226,14 @@ class my_plugin extends pluginSedLex {
 				
 			$tabs->add_tab(__('Parameters',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_param.png") ; 	
 			
-			ob_start() ; 
-				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
-				$trans = new translationSL($this->pluginID, $plugin) ; 
-				$trans->enable_translation() ; 
-			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
+			$frmk = new coreSLframework() ;  
+			if (((is_multisite())&&($blog_id == 1))||(!is_multisite())||($frmk->get_param('global_allow_translation_by_blogs'))) {
+				ob_start() ; 
+					$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
+					$trans = new translationSL($this->pluginID, $plugin) ; 
+					$trans->enable_translation() ; 
+				$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
+			}
 
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 

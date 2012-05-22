@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-01-29T18:05:04+00:00\n"
+"PO-Revision-Date: 2012-04-14T12:12:00+00:00\n"
 "Last-Translator: SedLex <http://www.sedlex.fr/>\n"
+"Last-Translator: PierreF <pf@romanliturgy.org>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 
 msgid "About..."
-msgstr "A propos..."
+msgstr "À propos..."
 
 msgid "Settings"
 msgstr "Réglages"
@@ -63,7 +64,7 @@ msgid "Do you want to udate the translations files when the plugin page is calle
 msgstr "Voulez-vous mettre à jour les fichiers de traductions quand la page des plugins est appelée :"
 
 msgid "This is useful if you develop a plugin, thus you will see when new sentences need to be translated."
-msgstr "Cela est utile si vous développez un plugin. Ainsi, vous verrez quand de nouvelles phrases devront être traduite."
+msgstr "Ceci est utile si vous développez un plugin. Ainsi, vous verrez quand de nouvelles phrases devront être traduite."
 
 msgid "Summary page for the plugins developped with the SL framework"
 msgstr "Page de synthèse pour les plugins développés avec le framework SL"
@@ -294,10 +295,10 @@ msgid "Save these data"
 msgstr "Sauvegarder ces informations"
 
 msgid "The current text"
-msgstr "Le texte courant"
+msgstr "Texte actuel"
 
 msgid "The proposed text"
-msgstr "Le texte proposé"
+msgstr "Texte proposé"
 
 msgid "There is a problem with the header of %s. It appears that there is no Version header."
 msgstr "Il y a un problème avec l&#039;entête de %s. Il semble qu&#039;il n&#039;y a pas d&#039;entête Version"
@@ -408,7 +409,7 @@ msgid "Your name:"
 msgstr "Votre nom :"
 
 msgid "(if your name/pseudo is already in the list, there is no need to fill this input)"
-msgstr "(si votre nom/pseudo est déja dans la list, il n&#039;est pas nécessiare de remplir ces champs)"
+msgstr "(si votre nom/pseudo est déja dans la liste, il n&#039;est pas nécessiare de remplir ce champ)"
 
 msgid "Your email or your website:"
 msgstr "Votre email ou votre site internet :"
@@ -676,4 +677,64 @@ msgstr "Vos identifiants de connexion ne semblent pas corrects. Merci de les vé
 
 msgid "This file have not been written in the repository due to server problem. Nevertheless, you should retry as it often works better with a second try !"
 msgstr "Le fichier n&#039;a pas été mis sur le dépôt SVN à cause de problème côté serveur. Néanmoins, vous devriez réessayer car cela arrive souvent ... le deuxième essai peut être le bon !"
+
+msgid "IMAP Login:"
+msgstr "Identifiant IMAP:"
+
+msgid "This is useful if you want that the framework retrieve automatically the translations file into an IMAP mailbox"
+msgstr "Ceci est utile si vous désirez que le système de localisation récupère automatiquement le fichier de traduction par la messagerie IMAP"
+
+msgid "IMAP Password:"
+msgstr "Mot de passe IMAP:"
+
+msgid "IMAP Server:"
+msgstr "serveur IMAP:"
+
+msgid "Should be something like %s"
+msgstr "Devrait être quelque chose du genre %s"
+
+msgid "The file %s cannot be extracted from mail attachments"
+msgstr "Le fichier %s ne peut pas être extrait des pièces jointes"
+
+msgid "The file %s cannot be written in the %s folder"
+msgstr "Le fichier %s ne peut pas être écrit dans le répertoire %s"
+
+msgid "The file %s has been imported in the %s folder"
+msgstr "Le fichier %s a été importé dans le répertoire %s"
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Delete"
+msgstr "Effacer"
+
+msgid "Import"
+msgstr "Importer"
+
+msgid "%s sentences have been newly translated and %s sentences have been modified (the old file has %s translated sentences)."
+msgstr "%s phrases on été traduites et %s phrases ont été modifiées (l&#039;ancien fichier contenait %s phrases traduites)."
+
+msgid "See modifications and Merge"
+msgstr "Voir modifications et Fusion"
+
+msgid "Merge"
+msgstr "Fusion"
+
+msgid "New translations are available"
+msgstr "De nouvelles traductions sont disponibles"
+
+msgid "Updates of translations are available"
+msgstr "Des mises à jour des traductions sont disponibles"
+
+msgid "What are the differences between these two files?"
+msgstr "Quelles sont les différences entre ces deux fichiers?"
+
+msgid "Old sentence"
+msgstr "Ancienne phrase"
+
+msgid "New sentence"
+msgstr "Nouvelle phrase"
+
+msgid "To replace?"
+msgstr "Remplacer?"
 
