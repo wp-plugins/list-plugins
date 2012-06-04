@@ -18,13 +18,18 @@ Create a list of the active plugins in a page (when the shortcode [list_plugins]
  The list may contain: 
 
 * the name of the plugin, 
+* the description, 
 * the version, 
-* the screenshots (up to 3 images),
+* the screenshots,
 * a link to download the zip file of the current version.
 
 Plugin developped from the orginal plugin WP-PluginsUsed. 
 
 This plugin is under GPL licence. 
+
+= Multisite - Wordpress MU =
+
+This plugin supports multi-site installation
 
 = Localization =
 
@@ -58,22 +63,19 @@ Have fun !
 
 == Changelog ==
 
+= 1.3.0 =
+* Add customization features
+
 = 1.2.0 =
 * Major release of the framework
 
-= 1.1.2 =
+= 1.1.0 -&gt; 1.1.2 =
 * Improve the English text thanks to Rene 
-
-= 1.1.0 =
 * Update of the core and translations
-
-= 1.1.0 =
 * SVN support
 
-= 1.0.2 =
+= 1.0.1 -&gt; 1.0.2 =
 * New release to force a bug in wordpress.org
-
-= 1.0.1 =
 * Initial release
 
 == Frequently Asked Questions ==
@@ -83,4 +85,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:1967c58eca188881f66a8e1a7b8552d7
+InfoVersion:7d61eacaed50b93b76139caf02e9a4fb

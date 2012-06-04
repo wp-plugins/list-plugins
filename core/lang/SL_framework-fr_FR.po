@@ -4,9 +4,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-04-14T12:12:00+00:00\n"
+"PO-Revision-Date: 2012-05-29T11:21:46+00:00\n"
 "Last-Translator: SedLex <http://www.sedlex.fr/>\n"
 "Last-Translator: PierreF <pf@romanliturgy.org>\n"
+"Last-Translator: wkpixearts <wkpixeartsforall@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -265,7 +266,7 @@ msgid "The commit has ended [ %s ]... You should received an email quickly !"
 msgstr "Le commit est terminé [ %s ] .... Vous devriez recevoir un email rapidement !"
 
 msgid "The commit has ended but there is an error!"
-msgstr "Le commit est terminé mais il y a eu une erreur !"
+msgstr "La validation est terminé mais il y a eu une erreur !"
 
 msgid "Sending to the local files in progress..."
 msgstr "Déplacement des fichiers en local en cours ..."
@@ -737,4 +738,94 @@ msgstr "Nouvelle phrase"
 
 msgid "To replace?"
 msgstr "Remplacer?"
+
+msgid "Log options"
+msgstr "Options du journal"
+
+msgid "What is the debug level:"
+msgstr "Quel est le niveau de débogage:"
+
+msgid "See the debug logs"
+msgstr "Voir les journaux de débogage"
+
+msgid "Multisite Management"
+msgstr "Gestion multi sites"
+
+msgid "If this option is unchecked, the translation tab won't be displayed in the blog administration panel."
+msgstr "Si cette option est décoché, l&#039;onglet de traduction n&#039;est pas visible dans le panneau d&#039;administration du blog"
+
+msgid "SVN Management"
+msgstr "Gestion SVN"
+
+msgid "Getting SVN information..."
+msgstr "Récupération des informations SVN"
+
+msgid "Number of download: %s"
+msgstr "Numéro du téléchargement: %s"
+
+msgid "Refresh"
+msgstr "Actualiser"
+
+msgid "SVN client for %s"
+msgstr "SVN client pour %s"
+
+msgid "1=log only the critical errors;"
+msgstr "1=Journal (Erreurs critiques seulement)"
+
+msgid "2=log only the critical errors and the standard errors;"
+msgstr "2=Journal (Erreurs standard et critiques seulement)"
+
+msgid "3=log only the critical errors, the standard errors and the warnings;"
+msgstr "3=Journal (Erreurs standard, avertissements et critiques seulement)"
+
+msgid "4=log information;"
+msgstr "4=Journal"
+
+msgid "5=log verbose;"
+msgstr "5=Journal détaillé"
+
+msgid "Do you want to allow sub-blogs to modify the translations of the plugins:"
+msgstr "Voulez-vous autoriser les sous-blog à modifier les traductions des extensions:"
+
+msgid "There is a SQL database for this plugin"
+msgstr "Il y a une base de données SQL pour cette extension"
+
+msgid "An error occured when retrieving the version of the plugin on Wordpress.org. Please retry!"
+msgstr "Une erreur s&#039;est produite lors de la récupération de la version de l’extension sur Wordpress.org. Veuillez réessayer !"
+
+msgid "Update of the core ..."
+msgstr "Mise à jour du noyau ..."
+
+msgid "1) Update with the core of the %s plugin"
+msgstr "1) Mettre à jour avec le noyau de l&#039;extension %s"
+
+msgid "1) The core of the plugin is up-to-date"
+msgstr "1) Le noyau de l’extension est à jour"
+
+msgid "2) Modify the version (but the files of plugin are unchanged)"
+msgstr "2) Modifier la version (mais les fichiers de l&#039;extension sont inchangés)"
+
+msgid "2) Modify the version (the files of the plugin have been changed)"
+msgstr "2) Modifier la version (mais les fichiers de l&#039;extension ont été changés)"
+
+msgid "2) Modify the readme.txt (as the version has been already changed)"
+msgstr "2) Modifier le fichier readme.txt (comme la version a déjà été changé)"
+
+msgid "3) Update the SVN repository (without modifying the version)"
+msgstr "3) Mettre à jour le dépôt SVN (sans modifier la version)"
+
+msgid "3) Update the SVN repository (and release a new version %s)"
+msgstr "3) Mettre à jour le dépôt SVN (et sortir une nouvelle version %s)"
+
+msgid "Error: security issue!"
+msgstr "Erreur: problème de sécurité!"
+
+msgid "Local to SVN repository"
+msgstr "Local vers dépôt SVN"
+
+msgid "SVN repository to Local"
+msgstr "Dépôt SVN vers Local"
+
+msgid "The commit has ended [ %s ]... You should received an email quickly ! You may close the window or wait for the automatic closing."
+msgstr "La validation a pris fin [ %s ] ... Vous devriez recevoir un email rapidement! Vous pouvez fermer la fenêtre ou attendre la fermeture automatique."
 

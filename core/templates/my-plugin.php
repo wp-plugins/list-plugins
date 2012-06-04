@@ -41,7 +41,7 @@ class my_plugin extends pluginSedLex {
 		$this->pluginName = 'My Plugin' ; 
 		
 		// The structure of the SQL table if needed (for instance, 'id_post mediumint(9) NOT NULL, short_url TEXT DEFAULT '', UNIQUE KEY id_post (id_post)') 
-		$this->tableSQL = '' ; 
+		$this->tableSQL = "" ; 
 		// The name of the SQL table (Do no modify except if you know what you do)
 		$this->table_name = $wpdb->prefix . "pluginSL_" . get_class() ; 
 
@@ -70,7 +70,8 @@ class my_plugin extends pluginSedLex {
 		
 		// activation and deactivation functions (Do not modify)
 		register_activation_hook(__FILE__, array($this,'install'));
-		register_deactivation_hook(__FILE__, array($this,'uninstall'));
+		register_deactivation_hook(__FILE__, array($this,'deactivate'));
+		register_uninstall_hook(__FILE__, array($this,'uninstall_removedata'));
 	}
 
 	/**====================================================================================================================================================

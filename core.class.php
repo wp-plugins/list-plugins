@@ -110,16 +110,51 @@ if (!class_exists('pluginSedLex')) {
 		* @access private
 		* @see subclass::_update 
 		* @see pluginSedLex::uninstall
+		* @see pluginSedLex::deactivate
+		* @param boolean $network_wide true if a network activation is in progress (see http://core.trac.wordpress.org/ticket/14170#comment:30)
 		* @return void
 		*/
-		public function install () {
+		
+		public function install ( $network_wide ) {
 			global $wpdb;
 			global $db_version;
-					
+			
+			// If the website is multisite, we have to call each install manually to create the table because it is called only for the main site.
+			// (see http://core.trac.wordpress.org/ticket/14170#comment:18) 
+
+			if (function_exists('is_multisite') && is_multisite() && $network_wide ){
+				$old_blog = $wpdb->blogid;
+				$old_prefix = $wpdb->prefix ; 
+				// Get all blog ids
+				$blogids = $wpdb->get_col($wpdb->prepare("SELECT blog_id FROM $wpdb->blogs"));
+				foreach ($blogids as $blog_id) {
+					switch_to_blog($blog_id);
+					$this->singleSite_install(str_replace($old_prefix, $wpdb->prefix, $this->table_name)) ; 
+				}
+				switch_to_blog($old_blog);
+			} else {
+				$this->singleSite_install($this->table_name) ; 
+			}
+		}
+		
+		/** ====================================================================================================================================================
+		* In order to install the plugin, few things are to be done ...
+		* This function is not supposed to be called from your plugin : it is a purely internal function called when you activate the plugin
+		* 
+		* @access private
+		* @see subclass::_update 
+		* @see pluginSedLex::uninstall_removedata
+		* @see pluginSedLex::deactivate
+		* @param string $table_name the SQL table name for the plugin
+		* @return void
+		*/
+
+		public function singleSite_install($table_name) {
+			global $wpdb ; 
+			
 			if (strlen(trim($this->tableSQL))>0) {
-				
-				if($wpdb->get_var("show tables like '".$this->table_name."'") != $this->table_name) {
-					$sql = "CREATE TABLE " . $this->table_name . " (".$this->tableSQL. ") DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;";
+				if($wpdb->get_var("show tables like '".$table_name."'") != $table_name) {
+					$sql = "CREATE TABLE " . $table_name . " (".$this->tableSQL. ") DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;";
 			
 					require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 					dbDelta($sql);
@@ -155,6 +190,21 @@ if (!class_exists('pluginSedLex')) {
 		}
 	
 		/** ====================================================================================================================================================
+		* In order to deactivate the plugin, few things are to be done ... 
+		* This function is not supposed to be called from your plugin : it is a purely internal function called when you de-activate the plugin
+		* 
+		* For now the function does nothing (but have to be declared)
+		* 
+		* @access private
+		* @see pluginSedLex::install
+		* @see pluginSedLex::uninstall_removedata
+		* @return void
+		*/
+		public function deactivate () {
+			//Nothing to do
+		}
+		
+		/** ====================================================================================================================================================
 		* In order to uninstall the plugin, few things are to be done ... 
 		* This function is not supposed to be called from your plugin : it is a purely internal function called when you de-activate the plugin
 		* 
@@ -162,10 +212,32 @@ if (!class_exists('pluginSedLex')) {
 		* 
 		* @access private
 		* @see pluginSedLex::install
+		* @see pluginSedLex::deactivate
 		* @return void
 		*/
-		public function uninstall () {
-			//Nothing to do
+		public function uninstall_removedata () {
+		
+			// DELETE OPTIONS
+			delete_option($this->pluginID.'_options') ;
+			if (is_multisite()) {
+				delete_site_option($this->pluginID.'_options') ;
+			}
+			
+			// DELETE SQL
+			if (function_exists('is_multisite') && is_multisite()){
+				$old_blog = $wpdb->blogid;
+				$old_prefix = $wpdb->prefix ; 
+				// Get all blog ids
+				$blogids = $wpdb->get_col($wpdb->prepare("SELECT blog_id FROM $wpdb->blogs"));
+				foreach ($blogids as $blog_id) {
+					switch_to_blog($blog_id);
+					$wpdb->query("DROP TABLE ".str_replace($old_prefix, $wpdb->prefix, $this->table_name)) ; 
+				}
+				switch_to_blog($old_blog);
+			} else {
+				$wpdb->query("DROP TABLE ".$this->table_name) ; 
+			}
+			
 		}
 		
 		/** ====================================================================================================================================================
@@ -832,9 +904,13 @@ if (!class_exists('pluginSedLex')) {
 								$cel1 = new adminCell(ob_get_clean()) ; 
 								
 								ob_start() ; 
+									$database = "" ; 
+									if ($info['Database']!="") {
+										$database = "<img src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/database.png"."' alt='".__('There is a SQL database for this plugin', 'SL_framework')."'/>" ; 
+									}
 									?>
 									<p><?php echo str_replace("<ul>", "<ul style='list-style-type:circle; padding-left:1cm;'>", $info['Description']) ; ?></p>
-									<p><?php echo sprintf(__('Version: %s by %s', 'SL_framework'),$info['Version'],$info['Author']) ; ?> (<a href='<?php echo $info['Author_URI'] ; ?>'><?php echo $info['Author_URI'] ; ?></a>)</p>
+									<p><?php echo sprintf(__('Version: %s by %s', 'SL_framework'),$info['Version'],$info['Author']) ; ?> (<a href='<?php echo $info['Author_URI'] ; ?>'><?php echo $info['Author_URI'] ; ?></a>)<?php echo $database ; ?></p>
 									<?php
 								$cel2 = new adminCell(ob_get_clean()) ; 
 								
@@ -1548,6 +1624,7 @@ if (!class_exists('pluginSedLex')) {
 			preg_match("|Author URI:(.*)|i", $plugin_data, $author_uri);
 			preg_match("|Author Email:(.*)|i", $plugin_data, $author_email);
 			preg_match("|Framework Email:(.*)|i", $plugin_data, $framework_email);
+			preg_match('|$this->tableSQL = "(.*)"|i', $plugin_data, $plugin_database);
 			if (preg_match("|Version:(.*)|i", $plugin_data, $version)) {
 				$version = trim($version[1]);
 			} else {
@@ -1565,8 +1642,9 @@ if (!class_exists('pluginSedLex')) {
 			$author_email = wp_kses(trim($author_email[1]), $plugins_allowedtags);;
 			$framework_email = wp_kses(trim($framework_email[1]), $plugins_allowedtags);;
 			$version = wp_kses($version, $plugins_allowedtags);
+			$database = trim($plugin_database[1]) ; 
 			
-			return array('Dir_Plugin'=>basename(dirname($plugin_file)) , 'Plugin_Name' => $plugin_name,'Plugin_Tag' => $plugin_tag, 'Plugin_URI' => $plugin_uri, 'Description' => $description, 'Author' => $author, 'Author_URI' => $author_uri, 'Email' => $author_email, 'Framework_Email' => $framework_email, 'Version' => $version);
+			return array('Dir_Plugin'=>basename(dirname($plugin_file)) , 'Plugin_Name' => $plugin_name,'Plugin_Tag' => $plugin_tag, 'Plugin_URI' => $plugin_uri, 'Description' => $description, 'Author' => $author, 'Author_URI' => $author_uri, 'Email' => $author_email, 'Framework_Email' => $framework_email, 'Version' => $version, 'Database' => $database);
 		}
 		
 		/** ====================================================================================================================================================

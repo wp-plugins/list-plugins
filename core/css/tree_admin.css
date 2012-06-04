@@ -40,7 +40,7 @@ ul.tree div.loading {
 	background: url("../img/ajax-loader.gif") no-repeat left 3px; 
 }
 
-.highlight {
+.highlight_placeholder {
 	border: 1px solid #A1A1A1 ; 
 	height:15px;
 	width:200px;

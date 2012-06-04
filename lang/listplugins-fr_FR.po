@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2011-12-12T14:29:40+00:00\n"
+"PO-Revision-Date: 2012-06-04T19:54:42+00:00\n"
 "Last-Translator: SedLex <http://www.sedlex.fr/>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,20 +20,56 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes\n"
 
-msgid "This plugin generates and display the list of the active plugins on your wordpress installation. Moreover it enables the download of the plugins."
-msgstr "Ce plugin génère et affiche la list des plugins actifs sur votre blog. De plus, il permet le téléchargement de ces plugins."
+msgid "This plugin generates and display the list of the plugins on your wordpress installation. Moreover it enables the download of the plugins."
+msgstr "Ce plugin génère et affiche la liste des plugins sur votre blog. De plus, il permet le téléchargement de ces plugins."
 
-msgid "Do you want the listed plugins to be downloadable?"
-msgstr "Souhaitez-vous que les plugins listés soient téléchargeables ?"
+msgid "To display the list please type %s on pages/posts where you want the list to be displayed."
+msgstr "Pour afficher la liste, taper %s sur les pages/articles où vous souhaiter que la liste soit afficher."
 
-msgid "Yes/No:"
-msgstr "Oui/Non :"
+msgid "Which plugins do you want to list?"
+msgstr "Quels plugins voulez-vous lister ?"
 
-msgid "Path to store the zip file:"
-msgstr "Chemin de stockage de l&#039;archive ZIP :"
+msgid "Display plugins that are hosted by Wordpress:"
+msgstr "Afficher les plugins hebergés par Wordpress :"
 
-msgid "Note that, if the plugin is also hosted by wordpress.org, the downlad link will be a link to the plugin page on wordpress.org"
-msgstr "Notez que si le plugin est aussi hebergé par wordpress.org, le lien de téléchargement pointera vers le site wordpress.org"
+msgid "Display Wordpress plugins that are inactive:"
+msgstr "Afficher les plugins Wordpress qui sont inactifs : "
+
+msgid "Display plugins that are not hosted by Wordpress:"
+msgstr "Afficher les plugins qui ne sont pas hebergés par Wordpress : "
+
+msgid "Display non-Wordpress plugins that are inactive:"
+msgstr "Afficher les plugins non-Wordpress qui sont inactifs : "
+
+msgid "Show only plugins developped by the author:"
+msgstr "Montrer seulement les plugins développés par cet auteur :"
+
+msgid "If this field is empty, all plugins (matching the previous conditions) will be displayed"
+msgstr "Si ce champ est vide, tous les plugins (respectant les conditions précédentes) seront affichés : "
+
+msgid "Advanced options"
+msgstr "Options avancées"
+
+msgid "What is the width of screenshots (in pixels):"
+msgstr "Quel est la taille des captures d&#039;écran (en pixels) : "
+
+msgid "What is the HTML:"
+msgstr "Quel est le HTML : "
+
+msgid "Default HTML: %s"
+msgstr "HTML par défaut : %s"
+
+msgid "What is the CSS:"
+msgstr "Quel est le CSS : "
+
+msgid "Default CSS: %s"
+msgstr "CSS par défaut %s"
+
+msgid "Path to store the zip file if needed:"
+msgstr "Chemin pour stocker les fichiers zip si nécessaire : "
+
+msgid "Note that, if the plugin is also hosted by wordpress.org, the download link will be a link to the plugin page on wordpress.org"
+msgstr "Notez que, si le plugin est aussi hebergé par wordpress.org, le lien de téléchargement pointera vers la page du plugin sur site wordpress.org"
 
 msgid "The path %s exists"
 msgstr "Le chemin %s existe"
@@ -43,24 +79,6 @@ msgstr "Le chemin %s n&#039;existe pas et ne peut pas être créé à cause des 
 
 msgid "The path %s have been just created !"
 msgstr "Le chemin %s vient d&#039;être créé !"
-
-msgid "For the listed plugins:"
-msgstr "Pour les plugins listés :"
-
-msgid "Show the version:"
-msgstr "Montrer la version"
-
-msgid "If you choose the plugins to be downloadable, the version will appear in the zip name whatever the option you choose here!"
-msgstr "Si vous choisissez que les plugins puissent être téléchargeables, la version apparaitra sur le nom du ZIP quoique vous choisissiez ici !"
-
-msgid "Show the embedded screenshots:"
-msgstr "Montrer les copies d&#039;écran :"
-
-msgid "Show only plugins developped by the author:"
-msgstr "Montrer seulement les plugins développés par cet auteur :"
-
-msgid "If this field is empty, all plugins will be displayed"
-msgstr "Si ce champ est vide, tous les plugins seront affichés"
 
 msgid "Parameters"
 msgstr "Paramètres"
@@ -73,9 +91,6 @@ msgstr "Donner un feedback"
 
 msgid "Other plugins"
 msgstr "Autres plugins"
-
-msgid "Created by %s"
-msgstr "Crée par %s"
 
 msgid "Download %s"
 msgstr "Télécharger %s"

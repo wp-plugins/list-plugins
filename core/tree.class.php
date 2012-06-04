@@ -27,18 +27,19 @@ if (!class_exists("treeList")) {
 		* <code>treeList::render($array) ; </code>
 		* if the array have 1 elements i.e. array('title element') the first element is the title (no children)
 		* if the array have 2 elements i.e. array('title element', "E45AF"), the second element will be considered as the id of the array
-		* if the array have 3 elements i.e. array('title element', "E45AF", null) the third element is the title and the second one is the children (array or null)
+		* if the array have 3 elements i.e. array('title element', "E45AF", null) the third element is the children (array or null)
 		* if the array have 4 elements i.e. array('title element', "E45AF", null, false), the fourth element will be considered as an indication whether the node is to be expanded or not (by default it is true)
 		* 
 		* @param array $array list to display, each item of the list is an array : array('title', null) if the node is the last one in the tree or array(title, array(...)) if there is other son nodes. 
 		* @param boolean $reduce_develop to enable the reduction and the expansion of the tree with javascript
 		* @param string $reorder_callback if you want to make the tree (nested list) sortable, please indicate what is the ajax callback function to be called upon sort. This function will receive the array in the $_POST['result'] variable. This function should return "OK". Otherwise, the return message will be 'alerted'
+		* @param string $classPerso a CSS custom class to customize the apparence of the tree
 		* @return void
 		*/
 		
-		function render($array, $reduce_develop=false, $reorder_callback=null){
+		function render($array, $reduce_develop=false, $reorder_callback=null, $classPerso=""){
 			$rand = rand(1, 10000000) ; 
-			echo "<div id='sortableTreeView".$rand."'>" ; 
+			echo "<div id='sortableTreeView".$rand."' class='".$classPerso."'>" ; 
 				treeList::render_sub($array,$reduce_develop, false) ; 
 			echo "</div>" ; 
 			
@@ -54,7 +55,7 @@ if (!class_exists("treeList")) {
 						cursorAt: { left: 0 },
 						cursor: 'crosshair',
 						connectWith: "#sortableTreeView<?php echo $rand ?> ul",
-						placeholder: "highlight", 
+						placeholder: "highlight_placeholder", 
 						sort: function(event, ui) {
 							parentPlaceholder = jQuery(ui.placeholder).parent().parent();
 							previousPlaceholderChildren = jQuery(ui.placeholder).prev().children("ul:first");
@@ -72,6 +73,7 @@ if (!class_exists("treeList")) {
 						},
 						start: function(event, ui) {
 							jQuery(ui.placeholder).css({height: jQuery(ui.helper).height()});
+							jQuery(ui.placeholder).css({width: jQuery(ui.helper).width()});
 							// Remove every children
 							jQuery(ui.placeholder).empty() ; 
 							// Clone 
@@ -172,6 +174,10 @@ if (!class_exists("treeList")) {
 					$toggle = " onclick='folderToggle(event, jQuery(this).find(\"ul:first\"));' ".$plus_minus." " ; 
 				} else if ($reduce_develop) {
 					$toggle = " onclick='stopPropag(event);' " ; 
+				}
+				// We replace the link in the text by a stopPropag to avoid closing the hierarchy when clicking on links
+				if ($reduce_develop) {
+				//	$item[0] = str_replace("<a ", "<a onclick='stopPropag(event);' ", $item[0]) ; 
 				}
 				echo "<li".$id."".$toggle.">"."<div>".$item[0]."</div>" ; 
 				if ($children!=null) {

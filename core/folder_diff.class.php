@@ -192,6 +192,8 @@ if (!class_exists("foldDiff")) {
 				echo "<p><input class='button-secondary action' onClick='allTick".$random."(true)' value='".__('Select all', 'SL_framework')."'>"  ; 
 				echo "&nbsp; <input class='button-secondary action' onClick='allTick".$random."(false)' value='".__('Un-select all', 'SL_framework')."'></p>"  ; 
 			}
+			
+			return $random ; 
 		}
 		
 		/** ====================================================================================================================================================
@@ -201,7 +203,7 @@ if (!class_exists("foldDiff")) {
 		* @param boolean $withTick display ticks 
 		* @param boolean $closeNotModifiedFolders close folders if their contents have not been modified
 		* @param boolean $random the random number used for a plurality of displaying
-		* @return string the random number that should be used to know which button has been clicked
+		* @return array to be used with treeList class
 		*/
 		
 		function sub_render($item, $closeNotModifiedFolders=true, $withTick=false, $random="") {
