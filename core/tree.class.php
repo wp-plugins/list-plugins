@@ -40,12 +40,36 @@ if (!class_exists("treeList")) {
 		function render($array, $reduce_develop=false, $reorder_callback=null, $classPerso=""){
 			$rand = rand(1, 10000000) ; 
 			echo "<div id='sortableTreeView".$rand."' class='".$classPerso."'>" ; 
-				treeList::render_sub($array,$reduce_develop, false) ; 
+				treeList::render_sub($array,$reduce_develop, false, $rand) ; 
 			echo "</div>" ; 
-			
+			?>
+			<script>
+				function stopPropag<?php echo $rand ?>(event) {
+					event.stopPropagation();
+					return false ; 
+				}
+
+				function folderToggle<?php echo $rand ?>(event, element) {
+					element.parent().toggleClass("minus_folder plus_folder")
+					event.stopPropagation();
+					jQuery.fn.fadeThenSlideToggle = function(speed, easing, callback) {
+						if (this.is(":hidden")) {
+							return this.slideDown(speed, easing).fadeTo(speed, 1, easing, callback);
+						} else {
+							return this.fadeTo(speed, 0, easing).slideUp(speed, easing, callback);
+						}
+					};
+					
+					element.fadeThenSlideToggle(500);
+					
+					return false ; 
+				}
+			</script>
+			<?php
 			if ($reorder_callback!=null) {
 				?>
 				<script>
+
 				jQuery(document).ready(function() {
 					// Initialize the sortable
 					jQuery('#sortableTreeView<?php echo $rand ?> ul').sortable({
@@ -146,7 +170,7 @@ if (!class_exists("treeList")) {
 		* @return void
 		*/
 		
-		function render_sub($array, $reduce_develop=false, $hide=false){
+		function render_sub($array, $reduce_develop=false, $hide=false, $rand=""){
 			$hidden = "" ; 
 			if ($hide) {
 				$hidden = " style='display: none;' " ; 
@@ -171,9 +195,9 @@ if (!class_exists("treeList")) {
 					}
 				}
 				if ($reduce_develop && ($children!=null)) {
-					$toggle = " onclick='folderToggle(event, jQuery(this).find(\"ul:first\"));' ".$plus_minus." " ; 
+					$toggle = " onclick='folderToggle".$rand."(event, jQuery(this).find(\"ul:first\"));' ".$plus_minus." " ; 
 				} else if ($reduce_develop) {
-					$toggle = " onclick='stopPropag(event);' " ; 
+					$toggle = " onclick='stopPropag".$rand."(event);' " ; 
 				}
 				// We replace the link in the text by a stopPropag to avoid closing the hierarchy when clicking on links
 				if ($reduce_develop) {
@@ -181,7 +205,7 @@ if (!class_exists("treeList")) {
 				}
 				echo "<li".$id."".$toggle.">"."<div>".$item[0]."</div>" ; 
 				if ($children!=null) {
-					treeList::render_sub($children, $reduce_develop, $next_hide) ; 
+					treeList::render_sub($children, $reduce_develop, $next_hide, $rand) ; 
 				} else {
 					echo "<ul></ul>" ; 
 				}
