@@ -1165,7 +1165,7 @@ if (!class_exists('pluginSedLex')) {
 						$version_on_wordpress = 0 ; 
 					} else {
 						echo "<p style='".$styleError."'>" ; 
-						echo __('An error occured when retrieving the version of the plugin on Wordpress.org. Please retry!', 'SL_framework')." <a href='#' onclick='coreInfo(\"".$md5."\", \"".$url."\", \"".$plugin_name."\", \"".$current_core_used."\", \"".$current_core_used."\", \"".$current_fingerprint_core_used."\", \"".$src_wait."\", \"".$msg_wait."\")'>[RETRY]</a>" ; 
+						echo __('An error occured when retrieving the version of the plugin on Wordpress.org. Please retry!', 'SL_framework')." <a href='#' onclick='coreInfo(\"".$md5."\", \"".$url."\", \"".$plugin_name."\", \"".$current_core_used."\", \"".$current_core_used."\", \"".$current_fingerprint_core_used."\", \"".$src_wait."\", \"".$msg_wait."\"); return false ; '>[RETRY]</a>" ; 
 						echo "</p>" ; 	
 						die() ;
 					} 
@@ -1248,13 +1248,14 @@ if (!class_exists('pluginSedLex')) {
 				} else {
 					$toBePrint .=  "<p style='".$styleDone."'>" ; 		
 				}
+				$toBePrint .= " <a href='#' onClick='showSvnPopup(\"".md5($url)."\", \"".$plugin_name."\"); return false;'>" ;
 				$toBePrint .= sprintf(__("3) Update the SVN repository (and release a new version %s)", 'SL_framework'), $info['Version']) ;
 				$toBePrint .=  "</a>" ;
 				$toBePrint .= "<img id='wait_popup_".md5($url)."' src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/ajax-loader.gif' style='display:none;'>" ; 
 				$toBePrint .=  "</p>" ;			
 			}
 			
-			$toBePrint .=  "<p style='".$styleComment."'><a href='#' onclick='coreInfo(\"".$md5."\", \"".$url."\", \"".$plugin_name."\", \"".$current_core_used."\", \"".$current_core_used."\", \"".$current_fingerprint_core_used."\", \"".$src_wait."\", \"".$msg_wait."\")'>".__('Refresh', 'SL_framework')."</a></p>" ; 
+			$toBePrint .=  "<p style='".$styleComment."'><a href='#' onclick='coreInfo(\"".$md5."\", \"".$url."\", \"".$plugin_name."\", \"".$current_core_used."\", \"".$current_core_used."\", \"".$current_fingerprint_core_used."\", \"".$src_wait."\", \"".$msg_wait."\"); return false ; '>".__('Refresh', 'SL_framework')."</a></p>" ; 
 					
 			echo $toBePrint  ; 
 

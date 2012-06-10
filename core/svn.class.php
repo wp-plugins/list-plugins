@@ -1252,6 +1252,9 @@ if (!class_exists("svnAdmin")) {
 			if ($res['isOK']) {
 				SL_Debug::log(get_class(), "The modification has been merged within the repository", 4) ; 
 				echo " <span style='color:#669900'>".sprintf(__("The commit has ended [ %s ]... You should received an email quickly ! You may close the window or wait for the automatic closing.","SL_framework"), $res['commit_info'])."</span>" ; 
+				echo "<script>
+					window.setTimeout('disablePopup()', 1000);
+				</script>" ; 
 			} else {
 				SL_Debug::log(get_class(), "The modification cannot be merged within the repository", 2) ; 
 				echo " <span style='color:#CC0000'>".__("The commit has ended but there is an error!","SL_framework")."</span>" ; 

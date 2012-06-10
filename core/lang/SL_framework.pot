@@ -201,7 +201,7 @@ msgid "Version: %s by %s"
 msgstr ""
 
 #: core.class.php:926
-#: core.class.php:1438
+#: core.class.php:1439
 #: core/svn.class.php:860
 #@ SL_framework
 msgid "Getting SVN information..."
@@ -318,98 +318,98 @@ msgstr ""
 msgid "3) Update the SVN repository (without modifying the version)"
 msgstr ""
 
-#: core.class.php:1251
+#: core.class.php:1252
 #@ SL_framework
 msgid "3) Update the SVN repository (and release a new version %s)"
 msgstr ""
 
-#: core.class.php:1257
+#: core.class.php:1258
 #@ SL_framework
 msgid "Refresh"
 msgstr ""
 
-#: core.class.php:1312
+#: core.class.php:1313
 #@ SL_framework
 msgid "Change the plugin version for %s"
 msgstr ""
 
-#: core.class.php:1316
+#: core.class.php:1317
 #@ SL_framework
 msgid "Version number"
 msgstr ""
 
-#: core.class.php:1317
+#: core.class.php:1318
 #@ SL_framework
 msgid "The current version of the plugin %s is %s."
 msgstr ""
 
-#: core.class.php:1318
+#: core.class.php:1319
 #@ SL_framework
 msgid "Please modify the version:"
 msgstr ""
 
-#: core.class.php:1319
+#: core.class.php:1320
 #@ SL_framework
 msgid "Readme file"
 msgstr ""
 
-#: core.class.php:1320
+#: core.class.php:1321
 #@ SL_framework
 msgid "The current content of %s is:"
 msgstr ""
 
-#: core.class.php:1424
+#: core.class.php:1425
 #@ SL_framework
 msgid "The current text"
 msgstr ""
 
-#: core.class.php:1424
+#: core.class.php:1425
 #@ SL_framework
 msgid "The proposed text"
 msgstr ""
 
-#: core.class.php:1430
+#: core.class.php:1431
 #@ SL_framework
 msgid "Save these data"
 msgstr ""
 
-#: core.class.php:1433
+#: core.class.php:1434
 #@ SL_framework
 msgid "There is a problem with the header of %s. It appears that there is no Version header."
 msgstr ""
 
-#: core.class.php:1477
+#: core.class.php:1478
 #@ SL_framework
 msgid "The data has been saved. You may close this window."
 msgstr ""
 
-#: core.class.php:1739
+#: core.class.php:1740
 #@ SL_framework
 msgid "The folder %s is not %s !"
 msgstr ""
 
-#: core.class.php:1741
+#: core.class.php:1742
 #@ SL_framework
 msgid "The file %s is not %s !"
 msgstr ""
 
-#: core.class.php:1748
-#: core.class.php:1755
+#: core.class.php:1749
+#: core.class.php:1756
 #@ SL_framework
 msgid "The folder %s does not exists and cannot be created !"
 msgstr ""
 
-#: core.class.php:1760
+#: core.class.php:1761
 #@ SL_framework
 msgid "The file %s does not exists and cannot be created !"
 msgstr ""
 
-#: core.class.php:1767
+#: core.class.php:1768
 #@ SL_framework
 msgid "There are some issues with folders rights. Please corret them as soon as possible as they could induce bugs and instabilities."
 msgstr ""
 
-#: core.class.php:1767
+#: core.class.php:1768
 #@ SL_framework
 msgid "Please see below:"
 msgstr ""
@@ -1288,17 +1288,17 @@ msgstr ""
 msgid "The commit has ended [ %s ]... You should received an email quickly ! You may close the window or wait for the automatic closing."
 msgstr ""
 
-#: core/svn.class.php:1257
+#: core/svn.class.php:1260
 #@ SL_framework
 msgid "The commit has ended but there is an error!"
 msgstr ""
 
-#: core/svn.class.php:1277
+#: core/svn.class.php:1280
 #@ SL_framework
 msgid "Sending to the local files in progress..."
 msgstr ""
 
-#: core/svn.class.php:1340
+#: core/svn.class.php:1343
 #@ SL_framework
 msgid "The rollback has ended ..."
 msgstr ""
