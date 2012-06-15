@@ -899,7 +899,16 @@ if (!class_exists('pluginSedLex')) {
 									<p><a href='admin.php?page=<?php echo $url  ; ?>'><?php echo __('Settings', 'SL_framework') ; ?></a> | <?php echo Utils::byteSize(Utils::dirSize(dirname(WP_PLUGIN_DIR.'/'.$url ))) ;?></p>
 								<?php
 									if ($this->frmk->get_param('adv_param')){
-										echo "<div id='infoPlugin_".md5($url)."'><img src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/ajax-loader.gif'></div><script>pluginInfo('infoPlugin_".md5($url)."', '".$url."', '".$plugin_name."'); </script>" ; 
+										echo "<div id='infoPlugin_".md5($url)."' style='display:none;' ><img src='".WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/ajax-loader.gif'> ".__('Update plugin information...', 'SL_framework')."</div>" ; 
+										?>
+										<script>
+											setTimeout("timePlugin<?php echo md5($url) ?>()", Math.floor(Math.random()*4000)); 
+											function timePlugin<?php echo md5($url) ?>() {
+												jQuery('#infoPlugin_<?php echo md5($url)?>').show() ; 
+												pluginInfo('infoPlugin_<?php echo md5($url) ; ?>', '<?php echo $url ; ?>', '<?php echo $plugin_name ; ?>') ; 
+											}
+										</script>
+										<?php
 									}
 								$cel1 = new adminCell(ob_get_clean()) ; 
 								
@@ -923,7 +932,7 @@ if (!class_exists('pluginSedLex')) {
 										setTimeout("timeCore<?php echo md5($url) ?>()", Math.floor(Math.random()*4000)+1000); 
 										function timeCore<?php echo md5($url) ?>() {
 											jQuery('#corePluginWait_<?php echo md5($url)?>').show() ; 
-											coreInfo('<?php echo md5($url) ?>', '<?php echo $url ?>', '<?php echo $plugin_name?>', '<?php echo $current_core_used?>', "<?php echo $current_fingerprint_core_used?>", '<?php echo $info['Author']?>', '<?php echo WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/ajax-loader.gif" ; ?>', '<?php echo __("Getting SVN information...", "SL_framework") ; ?>')
+											coreInfo('<?php echo md5($url) ?>', '<?php echo $url ?>', '<?php echo $plugin_name?>', '<?php echo $current_core_used?>', "<?php echo $current_fingerprint_core_used?>", '<?php echo $info['Author']?>', '<?php echo WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/ajax-loader.gif" ; ?>', '<?php echo __("Getting SVN information...", "SL_framework") ; ?>') ; 
 										}
 									</script>
 									<?php
@@ -1128,6 +1137,7 @@ if (!class_exists('pluginSedLex')) {
 		* @return void
 		*/
 		function coreInfo() {
+			
 			// get the arguments
 			$plugin_name = $_POST['plugin_name'] ;
 			$url = $_POST['url'] ;
@@ -1138,10 +1148,11 @@ if (!class_exists('pluginSedLex')) {
 			$current_core_used = $_POST['current_core'] ;
 			$current_fingerprint_core_used = $_POST['current_finger'] ;
 		
+			
 			$info_core = $this->checkCoreOfThePlugin(dirname(WP_PLUGIN_DIR.'/'.$url )."/core.php") ; 
 			$hash_plugin = $this->update_hash_plugin(dirname(WP_PLUGIN_DIR."/".$url)) ; 
 			$info = $this->get_plugins_data(WP_PLUGIN_DIR."/".$url);
-			
+
 			$toBeDone = false ; 
 			$styleDone = 'color:#666666;font-size:75% ; color:grey;' ; 
 			$styleComment = 'color:#666666;font-size:75% ; color:grey; text-align:right;' ; 
@@ -1165,7 +1176,7 @@ if (!class_exists('pluginSedLex')) {
 						$version_on_wordpress = 0 ; 
 					} else {
 						echo "<p style='".$styleError."'>" ; 
-						echo __('An error occured when retrieving the version of the plugin on Wordpress.org. Please retry!', 'SL_framework')." <a href='#' onclick='coreInfo(\"".$md5."\", \"".$url."\", \"".$plugin_name."\", \"".$current_core_used."\", \"".$current_core_used."\", \"".$current_fingerprint_core_used."\", \"".$src_wait."\", \"".$msg_wait."\"); return false ; '>[RETRY]</a>" ; 
+						echo __('An error occured when retrieving the version of the plugin on Wordpress.org. Please retry!', 'SL_framework')." <a href='#' onclick='coreInfo(\"".$md5."\", \"".$url."\", \"".$plugin_name."\", \"".$current_core_used."\", \"".$current_fingerprint_core_used."\", \"".$author."\", \"".$src_wait."\", \"".$msg_wait."\"); return false ; '>[RETRY]</a>" ; 
 						echo "</p>" ; 	
 						die() ;
 					} 
@@ -1255,8 +1266,8 @@ if (!class_exists('pluginSedLex')) {
 				$toBePrint .=  "</p>" ;			
 			}
 			
-			$toBePrint .=  "<p style='".$styleComment."'><a href='#' onclick='coreInfo(\"".$md5."\", \"".$url."\", \"".$plugin_name."\", \"".$current_core_used."\", \"".$current_core_used."\", \"".$current_fingerprint_core_used."\", \"".$src_wait."\", \"".$msg_wait."\"); return false ; '>".__('Refresh', 'SL_framework')."</a></p>" ; 
-					
+			$toBePrint .=  "<p style='".$styleComment."'><a href='#' onclick='coreInfo(\"".$md5."\", \"".$url."\", \"".$plugin_name."\", \"".$current_core_used."\", \"".$current_fingerprint_core_used."\", \"".$author."\", \"".$src_wait."\", \"".$msg_wait."\"); return false ; '>".__('Refresh', 'SL_framework')."</a></p>" ; 
+
 			echo $toBePrint  ; 
 
 			die() ; 
