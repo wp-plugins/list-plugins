@@ -105,7 +105,7 @@
 					<div class="postbox">
 						<h3 class="hndle"><span>adminTable<span class='desc_phpDoc'>[CLASSE]</span></span></h3>
 						<div class="inside" style="padding: 5px 10px 5px 20px;">
-							<p>This PHP class enables the creation of tables in the admin backend</p><p>Voici les méthodes de la classe:</p><ul><li class='li_class'><b><a href='#adminTable_adminTable'>adminTable::adminTable</a></b>: Constructor of the class</li><li class='li_class'><b><a href='#adminTable_title'>adminTable::title</a></b>: Set the titles of the columns</li><li class='li_class'><b><a href='#adminTable_current_page'>adminTable::current_page</a></b>: Get the current page of the table.</li><li class='li_class'><b><a href='#adminTable_removeFooter'>adminTable::removeFooter</a></b>: Remove the showed title at the footer of the table</li><li class='li_class'><b><a href='#adminTable_add_line'>adminTable::add_line</a></b>: Add a line in your table</li><li class='li_class'><b><a href='#adminTable_flush'>adminTable::flush</a></b>: Return the table HTML code. You just have to echo it</li></ul>					<table class="widefat fixed" cellspacing="0">
+							<p>This PHP class enables the creation of tables in the admin backend</p><p>Voici les méthodes de la classe:</p><ul><li class='li_class'><b><a href='#adminTable_adminTable'>adminTable::adminTable</a></b>: Constructor of the class</li><li class='li_class'><b><a href='#adminTable_title'>adminTable::title</a></b>: Set the titles of the columns</li><li class='li_class'><b><a href='#adminTable_current_page'>adminTable::current_page</a></b>: Get the current page of the table.</li><li class='li_class'><b><a href='#adminTable_current_ordercolumn'>adminTable::current_ordercolumn</a></b>: Get the current column order of the table.</li><li class='li_class'><b><a href='#adminTable_current_orderdir'>adminTable::current_orderdir</a></b>: Get the current column direction of the table.</li><li class='li_class'><b><a href='#adminTable_removeFooter'>adminTable::removeFooter</a></b>: Remove the showed title at the footer of the table</li><li class='li_class'><b><a href='#adminTable_add_line'>adminTable::add_line</a></b>: Add a line in your table</li><li class='li_class'><b><a href='#adminTable_flush'>adminTable::flush</a></b>: Return the table HTML code. You just have to echo it</li></ul>					<table class="widefat fixed" cellspacing="0">
 						<thead>
 							<tr>
 								<tr>
@@ -128,7 +128,7 @@
 									<span id="cell_1_1" ><a name='adminTable_adminTable'><p><b>adminTable</b><span class='desc_phpDoc'>[METHODE]</span></p><p>Constructor of the class</p></span>
 								</td>
 								<td class="column-columnname">
-									<span id="cell_1_2" ><p><b>Paramètres :</b></p><p style='padding-left:30px;'><b>$nb_all_Items</b> [optionnelle] (<i>integer</i>) the number of all items. If the number of submitted lines are less than this number, a navigation bar will be added at the top of the table (par défaut, sa valeur est : 0) </p><p style='padding-left:30px;'><b>$nb_max_per_page</b> [optionnelle] (<i>integer</i>) the number of item per page. This parameter is useful if you have submitted the previous parameter. (par défaut, sa valeur est : 0) </p><p><b>Valeur de retour :</b></p><p style='padding-left:30px;'><b>adminTable</b> the table</p><p><b>Exemple d&#039;appel :</b></p><p style='padding-left:30px;'><code>adminTable adminTable ([$nb_all_Items], [$nb_max_per_page]) ; </code></p></span>
+									<span id="cell_1_2" ><p><b>Paramètres :</b></p><p style='padding-left:30px;'><b>$nb_all_Items</b> [optionnelle] (<i>integer</i>) the number of all items. If the number of submitted lines are less than this number, a navigation bar will be added at the top of the table (par défaut, sa valeur est : 0) </p><p style='padding-left:30px;'><b>$nb_max_per_page</b> [optionnelle] (<i>integer</i>) the number of item per page. This parameter is useful if you have submitted the previous parameter. (par défaut, sa valeur est : 0) </p><p style='padding-left:30px;'><b>$order</b> [optionnelle] (<i>boolean</i>) allow the ordering of the columns with small arrows (par défaut, sa valeur est : ) </p><p><b>Valeur de retour :</b></p><p style='padding-left:30px;'><b>adminTable</b> the table</p><p><b>Exemple d&#039;appel :</b></p><p style='padding-left:30px;'><code>adminTable adminTable ([$nb_all_Items], [$nb_max_per_page], [$order]) ; </code></p></span>
 								</td>
 							</tr> 
 							<tr class="" valign="top" id="ligne1"> 
@@ -145,6 +145,22 @@
 								</td>
 								<td class="column-columnname">
 									<span id="cell_1_2" ><p><b>Paramètres : </b></p><p style='padding-left:30px;'>Pas de paramètre</p><p><b>Valeur de retour :</b></p><p style='padding-left:30px;'><b>integer</b> the page number</p><p><b>Exemple d&#039;appel :</b></p><p style='padding-left:30px;'><code>integer current_page () ; </code></p></span>
+								</td>
+							</tr> 
+							<tr class="" valign="top" id="ligne1"> 
+								<td class="column-columnname">
+									<span id="cell_1_1" ><a name='adminTable_current_ordercolumn'><p><b>current_ordercolumn</b><span class='desc_phpDoc'>[METHODE]</span></p><p>Get the current column order of the table.</p></span>
+								</td>
+								<td class="column-columnname">
+									<span id="cell_1_2" ><p><b>Paramètres : </b></p><p style='padding-left:30px;'>Pas de paramètre</p><p><b>Valeur de retour :</b></p><p style='padding-left:30px;'><b>integer</b> the column number</p><p><b>Exemple d&#039;appel :</b></p><p style='padding-left:30px;'><code>integer current_ordercolumn () ; </code></p></span>
+								</td>
+							</tr> 
+							<tr class="alternate" valign="top" id="ligne1"> 
+								<td class="column-columnname">
+									<span id="cell_1_1" ><a name='adminTable_current_orderdir'><p><b>current_orderdir</b><span class='desc_phpDoc'>[METHODE]</span></p><p>Get the current column direction of the table.</p></span>
+								</td>
+								<td class="column-columnname">
+									<span id="cell_1_2" ><p><b>Paramètres : </b></p><p style='padding-left:30px;'>Pas de paramètre</p><p><b>Valeur de retour :</b></p><p style='padding-left:30px;'><b>string</b> the column direction &quot;ASC&quot; or &quot;DESC&quot;</p><p><b>Exemple d&#039;appel :</b></p><p style='padding-left:30px;'><code>string current_orderdir () ; </code></p></span>
 								</td>
 							</tr> 
 							<tr class="" valign="top" id="ligne1"> 
@@ -1244,7 +1260,7 @@
 									<span id="cell_1_1" ><a name='Utils_multicolumn_sort'><p><b>multicolumn_sort</b><span class='desc_phpDoc'>[METHODE]</span></p><p>Sort a table against the n-th column</p></span>
 								</td>
 								<td class="column-columnname">
-									<span id="cell_1_2" ><p><b>Paramètres :</b></p><p style='padding-left:30px;'><b>$data</b> (<i>array</i>) the table (i.e. array of array) to be sorted</p><p style='padding-left:30px;'><b>$num</b> (<i>integer</i>) the n-th column to be considered in order to sort the table</p><p><b>Valeur de retour :</b></p><p style='padding-left:30px;'><b>array</b> the sorted table</p><p><b>Exemple d&#039;appel :</b></p><p style='padding-left:30px;'><code>array multicolumn_sort ($data, $num) ; </code></p></span>
+									<span id="cell_1_2" ><p><b>Paramètres :</b></p><p style='padding-left:30px;'><b>$data</b> (<i>array</i>) the table (i.e. array of array) to be sorted</p><p style='padding-left:30px;'><b>$num</b> (<i>integer</i>) the n-th column to be considered in order to sort the table</p><p style='padding-left:30px;'><b>$asc</b> [optionnelle] (<i>boolean</i>) the order will be ascendant if true and descendant otherwise (par défaut, sa valeur est : 1) </p><p><b>Valeur de retour :</b></p><p style='padding-left:30px;'><b>array</b> the sorted table</p><p><b>Exemple d&#039;appel :</b></p><p style='padding-left:30px;'><code>array multicolumn_sort ($data, $num, [$asc]) ; </code></p></span>
 								</td>
 							</tr> 
 							<tr class="" valign="top" id="ligne1"> 

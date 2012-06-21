@@ -160,52 +160,25 @@ if (!class_exists("Utils")) {
 		* 
 		* @param array $data the table (i.e. array of array) to be sorted
 		* @param integer $num the n-th column to be considered in order to sort the table 
+		* @param boolean $asc the order will be ascendant if true and descendant otherwise
 		* @return array the sorted table
 		*/
 
-		static function multicolumn_sort($data,$num){
+		static function multicolumn_sort($data,$num,$asc=true){
  			$col_uniq = array() ; 
  			
-			// List As Columns
-  			foreach ($data as $row) {
-				$ligne = $row[$num] ;
-				$cnt = 0 ; 
-				foreach ($row as $c) {
-					if ($cnt!=$num) {
-						$ligne .= ",".$row[$cnt] ; 
-					}
-					$cnt ++ ; 
-				}
-				$col_uniq[] = $ligne ; 
+ 			foreach ($data as $val) {
+    			$col_uniq[] = $val[$num];
+  			}
+  			
+ 			// We sort
+			if ($asc) {
+			 	array_multisort($col_uniq, SORT_ASC, $data);
+			} else {
+				array_multisort($col_uniq, SORT_DESC, $data);
 			}
 			
-			// We sort
-			asort($col_uniq) ; 
-			
-			$result = array() ; 
-			foreach ($col_uniq as $l) {
-				$tmp = explode(",",$l) ; 
-				if ($num!=0) {
-					// We recreate a string in the correct order
-					$cnt = 0 ; 
-					$ligne = "####azertyuiop####" ; 
-					foreach ($tmp as $c) {
-						if ($cnt!=0) {
-							$ligne .= ",".$tmp[$cnt] ; 
-							if ($cnt==$num) {
-								$ligne .= ",".$tmp[0] ; 
-							}
-						}
-						$cnt ++ ; 
-					}
-					$ligne = str_replace( "####azertyuiop####,", "", $ligne) ;
-					$result[] = explode(",",$ligne) ; 
-				} else {
-					$result[] = explode(",",$l) ; 
-				}
-			}
-			
-			return $result;
+			return $data;
 		} 
 		
 		/** ====================================================================================================================================================
