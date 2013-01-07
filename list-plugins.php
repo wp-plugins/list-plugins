@@ -3,7 +3,7 @@
 Plugin Name: List Plugins
 Plugin Tag: list, plugin, active
 Description: <p>Create a list of the active plugins in a page (when the shortcode <code>[list_plugins]</code> is found). </p><p> The list may contain: </p><ul><li>the name of the plugin, </li><li>the description, </li><li>the version, </li><li>the screenshots,</li><li>a link to download the zip file of the current version.</li></ul><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/extend/plugins/wp-pluginsused/">WP-PluginsUsed</a>. </p><p>This plugin is under GPL licence. </p>
-Version: 1.3.0
+Version: 1.3.1
 Framework: SL_Framework
 Author: SedLex
 Author Email: sedlex@sedlex.fr
@@ -42,11 +42,10 @@ class listplugins extends pluginSedLex {
 		//Init et des-init
 		register_activation_hook(__FILE__, array($this,'install'));
 		register_deactivation_hook(__FILE__, array($this,'deactivate'));
-		register_uninstall_hook(__FILE__, array($this,'uninstall_removedata'));
+		register_uninstall_hook(__FILE__, array('listplugins','uninstall_removedata'));
 		
 		//Parametres supplementaires
 		add_shortcode( "list_plugins", array($this,"list_plugins") );
-		add_action('wp_print_styles', array($this,'header_init'));
 
 		$this->wp_plugins = array();
 		$this->plugins_used = array() ;
@@ -61,6 +60,37 @@ class listplugins extends pluginSedLex {
 			self::$instance = new self;
 		}
 		return self::$instance;
+	}
+	
+	/** ====================================================================================================================================================
+	* In order to uninstall the plugin, few things are to be done ... 
+	* (do not modify this function)
+	* 
+	* @return void
+	*/
+	
+	public function uninstall_removedata () {
+		global $wpdb ;
+		// DELETE OPTIONS
+		delete_option('listplugins'.'_options') ;
+		if (is_multisite()) {
+			delete_site_option('listplugins'.'_options') ;
+		}
+		
+		// DELETE SQL
+		if (function_exists('is_multisite') && is_multisite()){
+			$old_blog = $wpdb->blogid;
+			$old_prefix = $wpdb->prefix ; 
+			// Get all blog ids
+			$blogids = $wpdb->get_col($wpdb->prepare("SELECT blog_id FROM ".$wpdb->blogs));
+			foreach ($blogids as $blog_id) {
+				switch_to_blog($blog_id);
+				$wpdb->query("DROP TABLE ".str_replace($old_prefix, $wpdb->prefix, $wpdb->prefix . "pluginSL_" . 'listplugins')) ; 
+			}
+			switch_to_blog($old_blog);
+		} else {
+			$wpdb->query("DROP TABLE ".$wpdb->prefix . "pluginSL_" . 'listplugins' ) ; 
+		}
 	}
 
 	/** ====================================================================================================================================================
@@ -97,11 +127,15 @@ class listplugins extends pluginSedLex {
 	}
 
 	/** ====================================================================================================================================================
-	* Load the configuration of the css in the header
-	* 
-	* @return variant of the option
+	* Init css for the public side
+	* If you want to load a style sheet, please type :
+	*	<code>$this->add_inline_css($css_text);</code>
+	*	<code>$this->add_css($css_url_file);</code>
+	*
+	* @return void
 	*/
-	function header_init() {
+	
+	function _public_css_load() {	
 		$css = $this->get_param('css') ; 
 		$this->add_inline_css($css) ; 
 	}

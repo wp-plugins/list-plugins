@@ -6,7 +6,7 @@ Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/extend/plugins/list-plugins/
 Tags: list, plugin, active
 Requires at least: 3.0
-Tested up to: 3.3.1
+Tested up to: 3.5
 Stable tag: trunk
 
 Create a list of the active plugins in a page (when the shortcode [list_plugins] is found). 
@@ -33,6 +33,7 @@ This plugin supports multi-site installation
 
 = Localization =
 
+* German (Germany) translation provided by MarkusBloch
 * English (United States), default language
 * French (France) translation provided by SedLex
 
@@ -63,6 +64,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.3.1 =
+* Update core
+
 = 1.3.0 =
 * Add customization features
 
@@ -73,8 +77,6 @@ Have fun !
 * Improve the English text thanks to Rene 
 * Update of the core and translations
 * SVN support
-
-= 1.0.1 -&gt; 1.0.2 =
 * New release to force a bug in wordpress.org
 * Initial release
 
@@ -85,4 +87,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:eee743022d8277ed4ef8d753d439a2ff
+InfoVersion:dff1b7965b834d722acadba21b188be5
