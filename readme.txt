@@ -52,7 +52,7 @@ Have fun !
 
 == Installation ==
 
-1. Upload this folder to your plugin directory (for instance '/wp-content/plugins/')
+1. Upload this folder list-plugins to your plugin directory (for instance '/wp-content/plugins/')
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Navigate to the 'SL plugins' box
 4. All plugins developed with the SL core will be listed in this box
@@ -63,6 +63,9 @@ Have fun !
 1. The configuration page of the plugin
 
 == Changelog ==
+
+= 1.3.2 =
+* Lighten the plugin and add translations
 
 = 1.3.1 =
 * Update core
@@ -87,4 +90,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:dff1b7965b834d722acadba21b188be5
+InfoVersion:d8ac163b0f1b64f666c3f5c02cff3444
