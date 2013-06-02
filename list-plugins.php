@@ -3,13 +3,13 @@
 Plugin Name: List Plugins
 Plugin Tag: list, plugin, active
 Description: <p>Create a list of the active plugins in a page (when the shortcode <code>[list_plugins]</code> is found). </p><p> The list may contain: </p><ul><li>the name of the plugin, </li><li>the description, </li><li>the version, </li><li>the screenshots,</li><li>a link to download the zip file of the current version.</li></ul><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/extend/plugins/wp-pluginsused/">WP-PluginsUsed</a>. </p><p>This plugin is under GPL licence. </p>
-Version: 1.3.2
+Version: 1.3.3
 Framework: SL_Framework
 Author: SedLex
 Author Email: sedlex@sedlex.fr
 Framework Email: sedlex@sedlex.fr
 Author URI: http://www.sedlex.fr/
-Plugin URI: http://wordpress.org/extend/plugins/list-plugins/
+Plugin URI: http://wordpress.org/plugins/list-plugins/
 License: GPL3
 */
 

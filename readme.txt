@@ -3,7 +3,7 @@
 Author: SedLex
 Contributors: SedLex
 Author URI: http://www.sedlex.fr/
-Plugin URI: http://wordpress.org/extend/plugins/list-plugins/
+Plugin URI: http://wordpress.org/plugins/list-plugins/
 Tags: list, plugin, active
 Requires at least: 3.0
 Tested up to: 3.5
@@ -64,6 +64,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.3.3 =
+* Modification of the URL for wordpress
+
 = 1.3.2 =
 * Lighten the plugin and add translations
 
@@ -90,4 +93,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:17cc418781ccc4a5abb7f003aad2e82b
+InfoVersion:e8ec5e8dad70085b16db2805cbec36fc
