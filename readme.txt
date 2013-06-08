@@ -64,6 +64,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.3.4 =
+* Modify regexp to take into account the modification of wordpress URL
+
 = 1.3.3 =
 * Modification of the URL for wordpress
 
@@ -93,4 +96,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:e8ec5e8dad70085b16db2805cbec36fc
+InfoVersion:db01c17b53accdfdfd0d5624275f6967
