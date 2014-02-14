@@ -6,7 +6,7 @@ Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/plugins/list-plugins/
 Tags: list, plugin, active
 Requires at least: 3.0
-Tested up to: 3.5
+Tested up to: 3.8.1
 Stable tag: trunk
 
 Create a list of the active plugins in a page (when the shortcode [list_plugins] is found). 
@@ -64,6 +64,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.3.5 =
+* Various enhancements
+
 = 1.3.4 =
 * Modify regexp to take into account the modification of wordpress URL
 
@@ -96,4 +99,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:db01c17b53accdfdfd0d5624275f6967
+InfoVersion:ba8a487bfb8f28a7b0e21ca8f70352ac

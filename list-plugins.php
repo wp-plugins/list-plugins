@@ -3,7 +3,7 @@
 Plugin Name: List Plugins
 Plugin Tag: list, plugin, active
 Description: <p>Create a list of the active plugins in a page (when the shortcode <code>[list_plugins]</code> is found). </p><p> The list may contain: </p><ul><li>the name of the plugin, </li><li>the description, </li><li>the version, </li><li>the screenshots,</li><li>a link to download the zip file of the current version.</li></ul><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/plugins/wp-pluginsused/">WP-PluginsUsed</a>. </p><p>This plugin is under GPL licence. </p>
-Version: 1.3.4
+Version: 1.3.5
 Framework: SL_Framework
 Author: SedLex
 Author Email: sedlex@sedlex.fr
@@ -14,6 +14,9 @@ License: GPL3
 */
 
 require_once('core.php') ; 
+
+if (!class_exists('PclZip'))
+	require_once (ABSPATH."wp-admin/includes/class-pclzip.php");
 if (!function_exists('get_plugins'))
 	require_once (ABSPATH."wp-admin/includes/plugin.php");
 			
@@ -252,24 +255,24 @@ class listplugins extends pluginSedLex {
 					}
 				}
 				$params->flush() ; 
-			$tabs->add_tab(__('Parameters',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_param.png") ; 	
+			$tabs->add_tab(__('Parameters',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_param.png") ; 	
 			
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
 				$trans = new translationSL($this->pluginID, $plugin) ; 
 				$trans->enable_translation() ; 
-			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
+			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
 
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
 				$trans = new feedbackSL($plugin, $this->pluginID) ; 
 				$trans->enable_feedback() ; 
-			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_mail.png") ; 	
+			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_mail.png") ; 	
 
 			ob_start() ; 
 				$trans = new otherPlugins("sedLex", array('wp-pirates-search')) ; 
 				$trans->list_plugins() ; 
-			$tabs->add_tab(__('Other plugins',  $this->pluginID), ob_get_clean() , WP_PLUGIN_URL.'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_plug.png") ; 	
+			$tabs->add_tab(__('Other plugins',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_plug.png") ; 	
 			
 			echo $tabs->flush() ; 
 			
@@ -322,12 +325,12 @@ class listplugins extends pluginSedLex {
 			// If the URI plugin point out on wordpress.org, then we put the wordpress link to the zip file.
 			if (preg_match("@wordpress\.org\/plugins@",$pts['PluginURI'])) {
 				$url = trim($pts['PluginURI']) ; 
-				$download_link .= '<p class="download"><img src="'.WP_PLUGIN_URL."/".str_replace(basename( __FILE__),"",plugin_basename(__FILE__)).'/img/zip.jpg">'; 
+				$download_link .= '<p class="download"><img src="'.plugin_dir_url("/")."/".str_replace(basename( __FILE__),"",plugin_basename(__FILE__)).'/img/zip.jpg">'; 
 				$download_link .= '<a href="'.$url.'" alt="'.sprintf(__('Download %s',$this->pluginID),' '.$pts['Name']).'">' ; 
 				$download_link .= sprintf(__('Download %s (on Wordpress.org)',$this->pluginID),' '.$pts['Name']).' </a></p>'; 
 			} else {
 				$name_zip = Utils::create_identifier($pts['Name'].' ').$pts['Version'].".zip" ; 
-				$url = WP_CONTENT_URL."/sedlex/".$this->get_param('path').'/'.$name_zip ; 
+				$url = content_url()."/sedlex/".$this->get_param('path').'/'.$name_zip ; 
 				$path = WP_CONTENT_DIR."/sedlex/".$this->get_param('path').'/'.$name_zip ; 
 				// on cree le zip, s'il n'existe pas
 				if (!is_file($path)) {
@@ -339,7 +342,7 @@ class listplugins extends pluginSedLex {
 					}
 				}
 				if (is_file($path)) {
-					$download_link .= '<p class="download"><img src="'.WP_PLUGIN_URL."/".str_replace(basename( __FILE__),"",plugin_basename(__FILE__)).'/img/zip.jpg">' ; 
+					$download_link .= '<p class="download"><img src="'.plugin_dir_url("/")."/".str_replace(basename( __FILE__),"",plugin_basename(__FILE__)).'/img/zip.jpg">' ; 
 					$download_link .= '<a href="'.$url.'" alt="'.sprintf(__('Download %s',$this->pluginID),' '.$pts['Name']).'">' ; 
 					$download_link .= sprintf(__('Download %s',$this->pluginID),' '.$pts['Name']).'</a></p>'; 
 				}
@@ -352,7 +355,7 @@ class listplugins extends pluginSedLex {
 			if (is_array($d)) {
 				foreach ($d as $file) {
 					if (preg_match("/screenshot-([0-9]*)\.(jpg|jpeg|png|gif)/i", $file, $match)) {
-						$url = WP_PLUGIN_URL."/".$dir[0]."/".$match[0] ; 
+						$url = plugin_dir_url("/")."/".$dir[0]."/".$match[0] ; 
 						$screen_link = "" ; 
 						$screen_link .= '<div class="listplugin_image">' ; 
 						$screen_link .= '<a style="text-decoration:none;" href="'.$url.'">' ; 
