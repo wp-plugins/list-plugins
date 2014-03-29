@@ -64,6 +64,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.3.6 =
+* Improve the look of the configuration page
+
 = 1.3.5 =
 * Various enhancements
 
@@ -99,4 +102,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:d3d18ba7667d0bdd8b0345ee0a5de5e3
+InfoVersion:a2d709246e826fa8a8507ba2e55f683e
