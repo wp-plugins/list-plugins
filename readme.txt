@@ -64,6 +64,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.3.8 =
+* Corrected logo
+
 = 1.3.7 =
 * Add logo for the plugin
 
@@ -105,4 +108,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:d58fc88e8e4847ee7395c46ec1f383b5
+InfoVersion:3cad1ec8035b3f973a11de27b33cc9fa
