@@ -64,6 +64,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.3.9 =
+* Various improvements of the framework
+
 = 1.3.8 =
 * Corrected logo
 
@@ -108,4 +111,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:e2bd8c60af9f7a7fb6d60696266a8798
+InfoVersion:f87db82a4ae5f2c3b8b37611ce1b0faa
