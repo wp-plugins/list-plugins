@@ -3,8 +3,7 @@
 Plugin Name: List Plugins
 Plugin Tag: list, plugin, active
 Description: <p>Create a list of the active plugins in a page (when the shortcode <code>[list_plugins]</code> is found). </p><p> The list may contain: </p><ul><li>the name of the plugin, </li><li>the description, </li><li>the version, </li><li>the screenshots,</li><li>a link to download the zip file of the current version.</li></ul><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/plugins/wp-pluginsused/">WP-PluginsUsed</a>. </p><p>This plugin is under GPL licence. </p>
-Version: 1.3.9
-
+Version: 1.4.0
 Framework: SL_Framework
 Author: SedLex
 Author Email: sedlex@sedlex.fr
@@ -160,9 +159,6 @@ class listplugins extends pluginSedLex {
 		<div class="plugin-contentSL">		
 			<?php echo $this->signature ; ?>
 
-			<p><?php echo __('This plugin generates and display the list of the plugins on your wordpress installation. Moreover it enables the download of the plugins.', $this->pluginID) ; ?></p>
-			<p><?php echo sprintf(__('To display the list please type %s on pages/posts where you want the list to be displayed.', $this->pluginID), "<code>[list_plugins]</code>") ; ?></p>
-
 		<?php
 			// On verifie que les droits sont corrects
 			$this->check_folder_rights( array() ) ; 
@@ -174,10 +170,22 @@ class listplugins extends pluginSedLex {
 			//
 			//==========================================================================================
 			
-			$tabs = new adminTabs() ; 
+			$tabs = new SLFramework_Tabs() ; 
 			
+			// HOW To
+			ob_start() ;
+				echo "<p>".__('This plugin generates and display the list of the plugins on your wordpress installation. Moreover it enables the download of the plugins.', $this->pluginID)."</p>" ; 
+			$howto1 = new SLFramework_Box (__("Purpose of that plugin", $this->pluginID), ob_get_clean()) ; 
+			ob_start() ;
+				echo "<p>".sprintf(__('To display the list please type %s on pages/posts where you want the list to be displayed.', $this->pluginID), "<code>[list_plugins]</code>")."</p>" ; 
+			$howto2 = new SLFramework_Box (__("How to display the list of the plugin?", $this->pluginID), ob_get_clean()) ; 
 			ob_start() ; 
-				$params = new parametersSedLex($this, 'tab-parameters') ; 
+				 echo $howto1->flush() ; 
+				 echo $howto2->flush() ; 
+			$tabs->add_tab(__('How To',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_how.png") ; 	
+
+			ob_start() ; 
+				$params = new SLFramework_Parameters($this, 'tab-parameters') ; 
 				
 				$params->add_title(__('Which plugins do you want to list?',$this->pluginID)) ; 
 				$params->add_param('show_wordpress', __('Display plugins that are hosted by Wordpress:',$this->pluginID), "", "", array('show_inactive_wordpress')) ; 
@@ -261,18 +269,18 @@ class listplugins extends pluginSedLex {
 			
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
-				$trans = new translationSL($this->pluginID, $plugin) ; 
+				$trans = new SLFramework_Translation($this->pluginID, $plugin) ; 
 				$trans->enable_translation() ; 
 			$tabs->add_tab(__('Manage translations',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_trad.png") ; 	
 
 			ob_start() ; 
 				$plugin = str_replace("/","",str_replace(basename(__FILE__),"",plugin_basename( __FILE__))) ; 
-				$trans = new feedbackSL($plugin, $this->pluginID) ; 
+				$trans = new SLFramework_Feedback($plugin, $this->pluginID) ; 
 				$trans->enable_feedback() ; 
 			$tabs->add_tab(__('Give feedback',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_mail.png") ; 	
 
 			ob_start() ; 
-				$trans = new otherPlugins("sedLex", array('wp-pirates-search')) ; 
+				$trans = new SLFramework_OtherPlugins("sedLex", array('wp-pirates-search')) ; 
 				$trans->list_plugins() ; 
 			$tabs->add_tab(__('Other plugins',  $this->pluginID), ob_get_clean() , plugin_dir_url("/").'/'.str_replace(basename(__FILE__),"",plugin_basename(__FILE__))."core/img/tab_plug.png") ; 	
 			
@@ -331,7 +339,7 @@ class listplugins extends pluginSedLex {
 				$download_link .= '<a href="'.$url.'" alt="'.sprintf(__('Download %s',$this->pluginID),' '.$pts['Name']).'">' ; 
 				$download_link .= sprintf(__('Download %s (on Wordpress.org)',$this->pluginID),' '.$pts['Name']).' </a></p>'; 
 			} else {
-				$name_zip = Utils::create_identifier($pts['Name'].' ').$pts['Version'].".zip" ; 
+				$name_zip = SLFramework_Utils::create_identifier($pts['Name'].' ').$pts['Version'].".zip" ; 
 				$url = content_url()."/sedlex/".$this->get_param('path').'/'.$name_zip ; 
 				$path = WP_CONTENT_DIR."/sedlex/".$this->get_param('path').'/'.$name_zip ; 
 				// on cree le zip, s'il n'existe pas
