@@ -3,7 +3,7 @@
 Plugin Name: List Plugins
 Plugin Tag: list, plugin, active
 Description: <p>Create a list of the active plugins in a page (when the shortcode <code>[list_plugins]</code> is found). </p><p> The list may contain: </p><ul><li>the name of the plugin, </li><li>the description, </li><li>the version, </li><li>the screenshots,</li><li>a link to download the zip file of the current version.</li></ul><p>Plugin developped from the orginal plugin <a href="http://wordpress.org/plugins/wp-pluginsused/">WP-PluginsUsed</a>. </p><p>This plugin is under GPL licence. </p>
-Version: 1.4.0
+Version: 1.4.1
 Framework: SL_Framework
 Author: SedLex
 Author Email: sedlex@sedlex.fr
@@ -327,7 +327,7 @@ class listplugins extends pluginSedLex {
 			$html = $this->get_param('html') ;
 			$html = str_replace('%name%', $pts['Name'], $html)  ; 
 			$html = str_replace('%version%', $pts['Version'], $html) ;  
-			$html = str_replace('%description%', $pts['Description'], $html) ; 
+			$html = str_replace('%description%', str_replace("[","&#91;",$pts['Description']), $html) ; 
 			$html = str_replace('%author%', $pts['Author'], $html) ; 
 			
 			// The download link
