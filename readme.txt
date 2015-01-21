@@ -60,6 +60,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.4.2 =
+* NEW: delete files upon desinstall
+
 = 1.4.1 =
 * NEW: add icons
 * NEW: slight modification of the display to avoid shortcut execution
@@ -114,4 +117,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:3fc776d726406a37877d1c8a4ce410dc44736ccc
+InfoVersion:01f6761ae9c11b163ea2c3ec646228da2d64e50b
