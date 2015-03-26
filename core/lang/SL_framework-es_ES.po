@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-10-10T15:16:31+00:00\n"
+"PO-Revision-Date: 2015-03-04T08:42:50+00:00\n"
 "Last-Translator: IgnacioCalvo <http://ignaciocalvo.com>\n"
 "Last-Translator: Verto <vertofotografia.es>\n"
 "Last-Translator: SecurityNull <www.securitynull.net>\n"
@@ -126,7 +126,7 @@ msgid "If you want to modify the language, please go in %s and find %s or %s. Th
 msgstr "Si desea modificar el idioma, por favor vaya a %s y encuentre %s o %s. El segundo argumento es su idioma y puede modificarlo como quiera."
 
 msgid "Translations available for this plugin (i.e. %s)"
-msgstr "Traducciones disponibles para el plugin  %s"
+msgstr "Traducciones disponibles para el plugin %s"
 
 msgid "Translations available for the SL framework (stored in %s)"
 msgstr "Traducciones disponibles para el framework (Almacenadas en SL %s)"
@@ -442,4 +442,37 @@ msgstr "El archivo %s no se puede renombrar. Debe tener un problema con los perm
 
 msgid "The file %s cannot be modified. You should have a problem with file permissions or security restrictions."
 msgstr "El archivo %s no se puede modificar. Debe tener un problema con los permisos de los archivos o las restricciones de seguridad."
+
+msgid "Location of the SL plugins"
+msgstr "Localización de los plugins SL"
+
+msgid "Where do you want to display the SL plugins:"
+msgstr "Donde desea mostrar los plugins SL:"
+
+msgid "Standard"
+msgstr "Estándar"
+
+msgid "under Plugins"
+msgstr "bajo Plugins"
+
+msgid "under Tools"
+msgstr "bajo Herramientas"
+
+msgid "under Settings"
+msgstr "en Configuración"
+
+msgid "The following plugins have been developed by the author and are not yet been installed:"
+msgstr "Los siguientes plugins han sido desarrollados por el autor y que aún no se han instalado:"
+
+msgid "The URL is correct and the ID of the media file is %s."
+msgstr "La URL es correcta y el ID del archivo es %s."
+
+msgid "The URL is not a media file."
+msgstr "La URL no es un archivo multimedia"
+
+msgid "Choose a media"
+msgstr "Elige un archivo"
+
+msgid "About SL plugins..."
+msgstr "Acerca de SL plugins..."
 

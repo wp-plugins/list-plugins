@@ -60,6 +60,9 @@ Have fun !
 
 == Changelog ==
 
+= 1.4.3 =
+* BUG : ths files were not desinstalling
+
 = 1.4.2 =
 * NEW: delete files upon desinstall
 
@@ -117,4 +120,4 @@ Have fun !
 Visit http://www.sedlex.fr/cote_geek/
 
  
-InfoVersion:b12236904ec138cd7c0e77afae56ddbe70aad7f5
+InfoVersion:b75d881a6c2134964012ed8f7fec53137d785513
